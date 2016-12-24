@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomePage-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="HomePage" id="BYZ-38-t0r" customClass="ViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="demo_quiz_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,7 +34,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Let's Play"/>
                                 <connections>
-                                    <segue destination="jte-PW-j4J" kind="presentation" id="512-h9-bLU"/>
+                                    <segue destination="cEi-fL-5Dy" kind="show" id="WnB-hh-eRY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -45,6 +45,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-839.20000000000005" y="114.69265367316342"/>
+        </scene>
+        <!--CategoriesNavigation-->
+        <scene sceneID="4ca-Bz-Qv9">
+            <objects>
+                <navigationController title="CategoriesNavigation" id="cEi-fL-5Dy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zFr-ZP-OCQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nNA-1p-40P" kind="relationship" relationship="rootViewController" id="26M-6p-ySd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mh3-vo-KVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="115"/>
         </scene>
         <!--Category-->
         <scene sceneID="M83-ga-cvC">
@@ -64,7 +80,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Video Games"/>
                                 <connections>
-                                    <segue destination="vNn-Zx-6Jy" kind="presentation" id="0ft-LI-eTb"/>
+                                    <segue destination="4l8-AV-pcC" kind="show" id="3to-p5-cBs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3L8-dS-xOZ">
@@ -73,38 +89,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Tech Companies"/>
                                 <connections>
-                                    <segue destination="kvf-mr-CgT" kind="presentation" id="M9U-uc-tDd"/>
+                                    <segue destination="Fnx-Fx-iXi" kind="show" id="Y6t-ii-Cv4"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jTl-we-izW"/>
+                    <navigationItem key="navigationItem" title="Categories" id="jTl-we-izW"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvA-sW-cyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160.8" y="114.69265367316342"/>
+            <point key="canvasLocation" x="1497" y="115"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="UQH-fP-lT0">
-            <objects>
-                <navigationController id="vNn-Zx-6Jy" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zKp-uG-ZqE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4l8-AV-pcC" kind="relationship" relationship="rootViewController" id="zmM-j6-paB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zsa-UX-pIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2078" y="-367"/>
-        </scene>
-        <!--Question-->
+        <!--Question1-->
         <scene sceneID="QAY-fb-bMM">
             <objects>
-                <viewController title="Question" id="4l8-AV-pcC" sceneMemberID="viewController">
+                <viewController title="Question1" id="4l8-AV-pcC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AAH-6f-0mK"/>
                         <viewControllerLayoutGuide type="bottom" id="VAN-rM-qOQ"/>
@@ -120,34 +121,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lvy-43-ify">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="PJK-Mf-tv2"/>
+                    <navigationItem key="navigationItem" title="Question 1" id="lvy-43-ify">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="vIC-mP-1Zy">
+                            <connections>
+                                <segue destination="PVH-6A-jPF" kind="show" id="UfC-FB-iqV"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgl-bd-E1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2982" y="-367"/>
+            <point key="canvasLocation" x="2982" y="-393"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="uK6-OO-6nK">
-            <objects>
-                <navigationController id="kvf-mr-CgT" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1mO-S9-nxw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Fnx-Fx-iXi" kind="relationship" relationship="rootViewController" id="vnm-Gw-rEm"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgb-Ob-JiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2078" y="618"/>
-        </scene>
-        <!--View Controller-->
+        <!--ComingSoon-->
         <scene sceneID="IN4-GX-nbO">
             <objects>
-                <viewController id="Fnx-Fx-iXi" sceneMemberID="viewController">
+                <viewController title="ComingSoon" id="Fnx-Fx-iXi" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="593-xn-I0K"/>
                         <viewControllerLayoutGuide type="bottom" id="FRp-od-OD0"/>
@@ -166,31 +155,72 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="b0c-tK-7FH">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="F5g-ud-Yq3"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="b0c-tK-7FH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPY-QK-cKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2982" y="619"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tD5-0U-Yvp">
+        <!--Question2-->
+        <scene sceneID="ApX-Cp-YDf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jte-PW-j4J" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UL0-0l-Gq4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="nNA-1p-40P" kind="relationship" relationship="rootViewController" id="sid-sZ-rMM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Dd-UL-rUh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Question2" id="PVH-6A-jPF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CGG-aL-fv3"/>
+                        <viewControllerLayoutGuide type="bottom" id="WJB-mg-Uq5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="29z-xZ-hp1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rC4-5M-FlI">
+                                <rect key="frame" x="67" y="56" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="ETk-3r-Hx3"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Question 2" id="Rss-DT-oE9">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="BtK-Ws-keq">
+                            <connections>
+                                <segue destination="bg7-BH-BMZ" kind="show" id="JFp-UD-ax0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9pF-Js-kFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="115"/>
+            <point key="canvasLocation" x="4065" y="-393"/>
+        </scene>
+        <!--Question3-->
+        <scene sceneID="yYI-sM-ioz">
+            <objects>
+                <viewController title="Question3" id="bg7-BH-BMZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Mp-Ly-vUu"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wxk-lr-w6O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V5L-It-zKy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-zE-qRx">
+                                <rect key="frame" x="67" y="56" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Question 3" id="hAe-wP-wF1">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="9dQ-Jw-L2J"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jVr-hw-nPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5270" y="-394"/>
         </scene>
     </scenes>
 </document>
