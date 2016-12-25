@@ -1,7 +1,4 @@
 //
-//  AppDelegate.swift
-//  QuizApp
-//
 //  Created by Piyush Joshi on 12/19/16.
 //  Copyright © 2016 Piyush Joshi. All rights reserved.
 //

@@ -12,7 +12,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="demo_quiz_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="BYZ-38-t0r" customClass="HomeViewController" customModule="demo_quiz_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -65,7 +65,7 @@
         <!--Category-->
         <scene sceneID="M83-ga-cvC">
             <objects>
-                <viewController title="Category" id="nNA-1p-40P" sceneMemberID="viewController">
+                <viewController title="Category" id="nNA-1p-40P" customClass="CategoriesViewController" customModule="demo_quiz_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CRS-j4-El6"/>
                         <viewControllerLayoutGuide type="bottom" id="9mM-Fi-fb4"/>
@@ -75,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUV-D0-0TU">
-                                <rect key="frame" x="177" y="264" width="22" height="22"/>
+                                <rect key="frame" x="16" y="244" width="308" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Video Games"/>
@@ -92,7 +92,7 @@
                                     <segue destination="Fnx-Fx-iXi" kind="show" id="Y6t-ii-Cv4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select the category of logos to start playing" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrM-Zg-aZK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which category of logos you want to play:" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrM-Zg-aZK">
                                 <rect key="frame" x="16" y="111" width="343" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -119,7 +119,7 @@
         <!--Question1-->
         <scene sceneID="QAY-fb-bMM">
             <objects>
-                <viewController title="Question1" id="4l8-AV-pcC" sceneMemberID="viewController">
+                <viewController title="Question1" id="4l8-AV-pcC" customClass="Question1ViewController" customModule="demo_quiz_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AAH-6f-0mK"/>
                         <viewControllerLayoutGuide type="bottom" id="VAN-rM-qOQ"/>
@@ -218,7 +218,7 @@
         <!--Question2-->
         <scene sceneID="ApX-Cp-YDf">
             <objects>
-                <viewController title="Question2" id="PVH-6A-jPF" sceneMemberID="viewController">
+                <viewController title="Question2" id="PVH-6A-jPF" customClass="Question2ViewController" customModule="demo_quiz_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CGG-aL-fv3"/>
                         <viewControllerLayoutGuide type="bottom" id="WJB-mg-Uq5"/>
@@ -247,12 +247,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9pF-Js-kFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4065" y="-393"/>
+            <point key="canvasLocation" x="4162" y="-394"/>
         </scene>
         <!--Question3-->
         <scene sceneID="yYI-sM-ioz">
             <objects>
-                <viewController title="Question3" id="bg7-BH-BMZ" sceneMemberID="viewController">
+                <viewController title="Question3" id="bg7-BH-BMZ" customClass="Question3ViewController" customModule="demo_quiz_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Mp-Ly-vUu"/>
                         <viewControllerLayoutGuide type="bottom" id="Wxk-lr-w6O"/>

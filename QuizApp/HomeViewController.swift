@@ -1,7 +1,4 @@
 //
-//  ViewController.swift
-//  QuizApp
-//
 //  Created by Piyush Joshi on 12/19/16.
 //  Copyright © 2016 Piyush Joshi. All rights reserved.
 //
@@ -13,7 +10,7 @@ import FacebookLogin
 import FacebookCore
 import FBSDKLoginKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     var azureMobileClient = MSClient(applicationURLString: "https://mobile-c009a447-0dc0-4178-8bd0-85b746833bd6.azurewebsites.net/")
     
@@ -33,7 +30,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: LoginButtonDelegate {
+extension HomeViewController: LoginButtonDelegate {
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         print("Did complete login via LoginButton with result \(result)");
@@ -42,9 +39,10 @@ extension ViewController: LoginButtonDelegate {
         azureMobileClient.login(withProvider: "facebook", token: payload) { (user, error) in
 
             if ((error) != nil) {
-                print("1Error logging in: %@" + error.debugDescription);
+                print("Error logging in: %@" + error.debugDescription);
             } else {
-                print("1Logged in as user" + (user?.userId)!);
+                print("Logged in as user" + (user?.userId)!);
+                
         
                 let table = self.azureMobileClient.table(withName: "LastPlayedScore");
                 
