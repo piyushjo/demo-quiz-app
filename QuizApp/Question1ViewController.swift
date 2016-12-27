@@ -6,6 +6,7 @@
 import UIKit
 import os.log
 
+
 class Question1ViewController: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
@@ -16,11 +17,16 @@ class Question1ViewController: UIViewController {
     @IBOutlet weak var answer3Button: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        
+        //Reset score before every new game assuming it is starting from Question 1
+        MyGlobalVariables.playerScore = 0;
+        
+        displayPlayerScore();
     }
 
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        super.didReceiveMemoryWarning();
     }
 
     // MARK - Actions events
@@ -31,7 +37,17 @@ class Question1ViewController: UIViewController {
     
     @IBAction func correctAnswerProvided(_ sender: UIButton) {
         resultLabel.text = "CORRECT";
+        updateAndShowScore();
         disableAllButtons();
+    }
+    
+    func updateAndShowScore() {
+        MyGlobalVariables.playerScore += 10;
+        displayPlayerScore();
+    }
+    
+    func displayPlayerScore(){
+        currentScoreLabel.text = "Your score : " + String(MyGlobalVariables.playerScore);
     }
     
     func disableAllButtons() {

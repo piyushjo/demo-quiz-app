@@ -10,12 +10,13 @@ import FacebookLogin
 import FacebookCore
 import FBSDKLoginKit
 
+
 class HomeViewController: UIViewController {
-    
-    var azureMobileClient = MSClient(applicationURLString: "https://mobile-c009a447-0dc0-4178-8bd0-85b746833bd6.azurewebsites.net/")
+
+    @IBOutlet weak var playButton: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         
         // FB Login
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email ]);
@@ -33,44 +34,26 @@ class HomeViewController: UIViewController {
 extension HomeViewController: LoginButtonDelegate {
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        print("Did complete login via LoginButton with result \(result)");
+        
+        print("Completed FB login via LoginButton with result: \(result)");
+        
         let payload: [String: String] = ["access_token": (AccessToken.current?.authenticationToken)!];
         
-        azureMobileClient.login(withProvider: "facebook", token: payload) { (user, error) in
+        MyGlobalVariables.azureMobileClient.login(withProvider: "facebook", token: payload) { (user, error) in
 
             if ((error) != nil) {
-                print("Error logging in: %@" + error.debugDescription);
+                print("Failed Azure Mobile login with error: %@" + error.debugDescription);
             } else {
-                print("Logged in as user" + (user?.userId)!);
+                print("Completed Azure Mobile login as user: " + (user?.userId)!);
                 
-        
-                let table = self.azureMobileClient.table(withName: "LastPlayedScore");
-                
-                //let newItem = ["score": 200];
-                //table.insert(newItem) { (result1, error1) in
-                //    if let err = error1 {
-                //        print("ERROR ", err);
-                //    } else if let item = result1 {
-                //        print("Score: ", item["score"]!);
-                //    }
-                //}
-                
-                table.read { (result2, error2) in
-                    if let err = error2 {
-                        print("ERROR ", err)
-                    } else if let items = result2?.items {
-                        for item in items {
-                            print("Todo Item: ", item["score"]!)
-                        }
-                    }
-                }
-            
+                // Enable the Play button
+                self.playButton.isEnabled = true;
             }
         };
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        print("Did logout via LoginButton")
+        print("Completed FB logout via LoginButton")
     }
 }
 
