@@ -4,29 +4,39 @@
 //
 
 import UIKit
+import os.log
 
 class Question1ViewController: UIViewController {
 
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var currentScoreLabel: UILabel!
+    
+    @IBOutlet weak var answer1Button: UIButton!
+    @IBOutlet weak var answer2Button: UIButton!
+    @IBOutlet weak var answer3Button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+
+    // MARK - Actions events
+    @IBAction func incorrectAnswerProvided(_ sender: UIButton) {
+        resultLabel.text = "INCORRECT";
+        disableAllButtons();
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func correctAnswerProvided(_ sender: UIButton) {
+        resultLabel.text = "CORRECT";
+        disableAllButtons();
     }
-    */
-
+    
+    func disableAllButtons() {
+        answer1Button.isEnabled = false;
+        answer2Button.isEnabled = false;
+        answer3Button.isEnabled = false;
+    }
 }

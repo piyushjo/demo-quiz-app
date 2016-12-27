@@ -7,11 +7,14 @@ import UIKit
 
 class CategoriesViewController: UIViewController {
 
+    
+    @IBOutlet weak var lastScoreLabelField: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        print("Reaching ViewController");
+        lastScoreLabelField.text = "Your last score was: 100";
+        
     }
 
     override func didReceiveMemoryWarning() {

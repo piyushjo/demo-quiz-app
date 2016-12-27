@@ -74,15 +74,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUV-D0-0TU">
-                                <rect key="frame" x="16" y="244" width="308" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Video Games"/>
-                                <connections>
-                                    <segue destination="4l8-AV-pcC" kind="show" id="3to-p5-cBs"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3L8-dS-xOZ">
                                 <rect key="frame" x="16" y="337" width="343" height="109"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -106,11 +97,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUV-D0-0TU">
+                                <rect key="frame" x="16" y="244" width="308" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Video Games"/>
+                                <connections>
+                                    <segue destination="4l8-AV-pcC" kind="show" id="3to-p5-cBs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Categories" id="jTl-we-izW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="lastScoreLabelField" destination="BwB-F7-ZtU" id="WDF-ZI-zW0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvA-sW-cyi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -133,28 +136,32 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JS4-K1-rGF">
-                                <rect key="frame" x="140" y="244" width="95" height="179"/>
+                                <rect key="frame" x="140" y="244" width="95" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf7-hU-e4w">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Answer1"/>
+                                        <connections>
+                                            <action selector="incorrectAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="eW5-dA-BOu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-Nj-lU3">
                                         <rect key="frame" x="0.0" y="46" width="95" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Answer2"/>
+                                        <connections>
+                                            <action selector="incorrectAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="hwv-Vx-dfl"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yne-la-Nbj">
                                         <rect key="frame" x="0.0" y="92" width="95" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <state key="normal" title="Answer3"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTY-BH-fXq">
-                                        <rect key="frame" x="0.0" y="138" width="95" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Answer4"/>
+                                        <connections>
+                                            <action selector="correctAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="aIZ-Bf-RBs"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -182,6 +189,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="answer1Button" destination="Hf7-hU-e4w" id="4EM-kk-EB3"/>
+                        <outlet property="answer2Button" destination="dq9-Nj-lU3" id="EnG-Wc-ihX"/>
+                        <outlet property="answer3Button" destination="yne-la-Nbj" id="o5k-Qr-iyV"/>
+                        <outlet property="currentScoreLabel" destination="PQ8-Uq-waL" id="ydO-P4-Eu8"/>
+                        <outlet property="resultLabel" destination="T5V-t5-kjY" id="I9L-LK-UTS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgl-bd-E1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
