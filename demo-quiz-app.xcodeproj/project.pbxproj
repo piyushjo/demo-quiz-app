@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		790273C81E13059500FA283D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790273C71E13059500FA283D /* Global.swift */; };
+		790273CA1E132E0000FA283D /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790273C91E132E0000FA283D /* CustomButtons.swift */; };
 		7912E17F1E0C8A4000314964 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7912E17E1E0C8A4000314964 /* MicrosoftAzureMobile.framework */; };
 		7964561B1E0F9480002E27AC /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796456191E0F9480002E27AC /* CategoriesViewController.swift */; };
 		7964561E1E0F9A5C002E27AC /* Question1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964561D1E0F9A5C002E27AC /* Question1ViewController.swift */; };
@@ -26,6 +27,7 @@
 		3A8CC8395199B676026A48E3 /* Pods-demo-quiz-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo-quiz-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demo-quiz-app/Pods-demo-quiz-app.debug.xcconfig"; sourceTree = "<group>"; };
 		40274A6134AB069E02D21FFF /* Pods_demo_quiz_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo_quiz_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		790273C71E13059500FA283D /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		790273C91E132E0000FA283D /* CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		7912E17E1E0C8A4000314964 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		796456191E0F9480002E27AC /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		7964561D1E0F9A5C002E27AC /* Question1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question1ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				796C00261E09013D004A5B62 /* Assets.xcassets */,
 				796C00281E09013D004A5B62 /* LaunchScreen.storyboard */,
 				796C002B1E09013D004A5B62 /* Info.plist */,
+				790273C91E132E0000FA283D /* CustomButtons.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				796C00221E09013D004A5B62 /* HomeViewController.swift in Sources */,
 				796456221E0F9AAB002E27AC /* Question3ViewController.swift in Sources */,
 				796C00201E09013D004A5B62 /* AppDelegate.swift in Sources */,
+				790273CA1E132E0000FA283D /* CustomButtons.swift in Sources */,
 				796456201E0F9A9B002E27AC /* Question2ViewController.swift in Sources */,
 				7964561B1E0F9480002E27AC /* CategoriesViewController.swift in Sources */,
 				790273C81E13059500FA283D /* Global.swift in Sources */,

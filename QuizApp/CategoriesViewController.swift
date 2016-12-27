@@ -23,24 +23,10 @@ class CategoriesViewController: UIViewController {
     
     @IBAction func unwindtoCategories(sender: UIStoryboardSegue) {
         if sender.source is Question3ViewController {
-            lastScoreLabelField.text = "Current score: " + String(MyGlobalVariables.playerScore);
+            self.lastScoreLabelField.text = "Your score: " + String(MyGlobalVariables.playerScore);
             
             // Update this score in the backend also
             updatePlayerScore();
-        }
-    }
-    
-    func fetchAndDisplayLastPlayerScore() {
-        let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
-        
-        table.read { (result2, error2) in
-            if let err = error2 {
-                print("ERROR ", err)
-            } else if let items = result2?.items {
-                for item in items {
-                    print("Todo Item: ", item["score"]!)
-                }
-            }
         }
     }
     
@@ -59,10 +45,10 @@ class CategoriesViewController: UIViewController {
             } else if (result?.items) != nil && (result?.items?.count)! > 0 {
                 // If table access was succesful and an item was found
                 let playerRecord = result?.items?[0];
-                let playerLastScore = playerRecord!["score"];
+                let playerLastScore = (String(format: "%@", playerRecord?["score"] as! CVarArg) as String);
                 
                 // Update
-                self.lastScoreLabelField.text = playerLastScore as? String;
+                self.lastScoreLabelField.text = String(format: "Your last score was: %@", playerLastScore);
                 
             } else {
                 // No score found. Playing for the first time
