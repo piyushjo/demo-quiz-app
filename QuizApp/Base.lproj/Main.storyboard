@@ -141,36 +141,24 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Bing"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JS4-K1-rGF">
-                                <rect key="frame" x="140" y="329" width="77" height="133"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf7-hU-e4w" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="313" width="200" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf7-hU-e4w" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="77" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Google"/>
-                                        <connections>
-                                            <action selector="incorrectAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="eW5-dA-BOu"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-Nj-lU3" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="46" width="77" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Ask"/>
-                                        <connections>
-                                            <action selector="incorrectAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="hwv-Vx-dfl"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yne-la-Nbj" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="77" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Bing"/>
-                                        <connections>
-                                            <action selector="correctAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="aIZ-Bf-RBs"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Google"/>
+                                <connections>
+                                    <action selector="incorrectAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="eW5-dA-BOu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-Nj-lU3" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="362" width="200" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Ask"/>
+                                <connections>
+                                    <action selector="incorrectAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="hwv-Vx-dfl"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5V-t5-kjY">
                                 <rect key="frame" x="16" y="502" width="343" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -185,6 +173,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yne-la-Nbj" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="411" width="200" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Bing"/>
+                                <connections>
+                                    <action selector="correctAnswerProvided:" destination="4l8-AV-pcC" eventType="touchDown" id="aIZ-Bf-RBs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -206,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lgl-bd-E1x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2981.5999999999999" y="-393.55322338830587"/>
+            <point key="canvasLocation" x="2981.5" y="-394.5"/>
         </scene>
         <!--ComingSoon-->
         <scene sceneID="IN4-GX-nbO">
@@ -260,36 +257,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P2k-Cu-9cZ">
-                                <rect key="frame" x="140" y="329" width="118" height="133"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvn-sh-7Jr" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="313" width="200" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvn-sh-7Jr" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Xbox"/>
-                                        <connections>
-                                            <action selector="correctAnswerProvided:" destination="PVH-6A-jPF" eventType="touchDown" id="eAo-bD-jWL"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOC-Ly-IhJ" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="46" width="118" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Wii"/>
-                                        <connections>
-                                            <action selector="incorrectAnswerProvided:" destination="PVH-6A-jPF" eventType="touchDown" id="C0j-Ku-x1x"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS1-YD-l6g" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="118" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Playstation"/>
-                                        <connections>
-                                            <action selector="incorrectAnswerProvided:" destination="PVH-6A-jPF" eventType="touchDown" id="1ZA-of-lED"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Xbox"/>
+                                <connections>
+                                    <action selector="correctAnswerProvided:" destination="PVH-6A-jPF" eventType="touchDown" id="eAo-bD-jWL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOC-Ly-IhJ" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="362" width="200" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Wii"/>
+                                <connections>
+                                    <action selector="incorrectAnswerProvided:" destination="PVH-6A-jPF" eventType="touchDown" id="C0j-Ku-x1x"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HS1-YD-l6g" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="411" width="200" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Playstation"/>
+                                <connections>
+                                    <action selector="incorrectAnswerProvided:" destination="PVH-6A-jPF" eventType="touchDown" id="1ZA-of-lED"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwY-Kd-qir">
                                 <rect key="frame" x="16" y="502" width="343" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -347,36 +341,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b3j-bm-HEu">
-                                <rect key="frame" x="140" y="329" width="88" height="133"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtG-Sb-ez1" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="313" width="200" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtG-Sb-ez1" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="88" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Skype"/>
-                                        <connections>
-                                            <action selector="incorrectAnswerProvided:" destination="bg7-BH-BMZ" eventType="touchDown" id="UFw-yE-xkG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjY-0x-R4t" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="46" width="88" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Yammer"/>
-                                        <connections>
-                                            <action selector="correctAnswerProvided:" destination="bg7-BH-BMZ" eventType="touchDown" id="kOu-ls-2Wo"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESn-p5-zQg" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="88" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="Wechat"/>
-                                        <connections>
-                                            <action selector="incorrectAnswerProvided:" destination="bg7-BH-BMZ" eventType="touchDown" id="nhq-AV-Dsl"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Skype"/>
+                                <connections>
+                                    <action selector="incorrectAnswerProvided:" destination="bg7-BH-BMZ" eventType="touchDown" id="UFw-yE-xkG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjY-0x-R4t" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="362" width="200" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Yammer"/>
+                                <connections>
+                                    <action selector="correctAnswerProvided:" destination="bg7-BH-BMZ" eventType="touchDown" id="kOu-ls-2Wo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESn-p5-zQg" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
+                                <rect key="frame" x="98" y="411" width="200" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Wechat"/>
+                                <connections>
+                                    <action selector="incorrectAnswerProvided:" destination="bg7-BH-BMZ" eventType="touchDown" id="nhq-AV-Dsl"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtC-Ew-0W1">
                                 <rect key="frame" x="16" y="502" width="343" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

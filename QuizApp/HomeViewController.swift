@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
     
+    var store : MSCoreDataStore?
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -27,6 +29,15 @@ class HomeViewController: UIViewController {
         if (AccessToken.current != nil) {
             self.playButton.isEnabled = true;
         }
+
+        // Initialization for Azure Mobile Apps Data sync
+        initializeLocalStorageDb();
+    }
+    
+    func initializeLocalStorageDb() {
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!;
+        self.store = MSCoreDataStore(managedObjectContext: managedObjectContext);
+        MyGlobalVariables.azureMobileClient.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil);
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,6 +66,7 @@ extension HomeViewController: LoginButtonDelegate {
             }
         };
     }
+    
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
         print("Completed FB logout via LoginButton")

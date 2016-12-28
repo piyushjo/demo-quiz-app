@@ -19,6 +19,7 @@
 		796C00251E09013D004A5B62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796C00231E09013D004A5B62 /* Main.storyboard */; };
 		796C00271E09013D004A5B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 796C00261E09013D004A5B62 /* Assets.xcassets */; };
 		796C002A1E09013D004A5B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 796C00281E09013D004A5B62 /* LaunchScreen.storyboard */; };
+		79D2D4821E13AD1A00080EC8 /* AppDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79D2D4801E13AD1A00080EC8 /* AppDataModel.xcdatamodeld */; };
 		81C54FCBA65D5FC38022065D /* Pods_demo_quiz_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40274A6134AB069E02D21FFF /* Pods_demo_quiz_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		796C002B1E09013D004A5B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796C00311E09015F004A5B62 /* QuizApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuizApp.entitlements; sourceTree = "<group>"; };
 		797A7FBA1E0B17BA000C444D /* QuizApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuizApp-Bridging-Header.h"; path = "QuizApp/QuizApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		79D2D4811E13AD1A00080EC8 /* AppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDataModel.xcdatamodel; sourceTree = "<group>"; };
 		7D92AB4A783B9938013A7B65 /* Pods-demo-quiz-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo-quiz-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-demo-quiz-app/Pods-demo-quiz-app.release.xcconfig"; sourceTree = "<group>"; };
 		D008497AE7F51AFE9990FEAC /* Pods-QuizApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuizApp/Pods-QuizApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 		796C001E1E09013D004A5B62 /* QuizApp */ = {
 			isa = PBXGroup;
 			children = (
+				79D2D4801E13AD1A00080EC8 /* AppDataModel.xcdatamodeld */,
 				796C00311E09015F004A5B62 /* QuizApp.entitlements */,
 				796C001F1E09013D004A5B62 /* AppDelegate.swift */,
 				790273C71E13059500FA283D /* Global.swift */,
@@ -251,6 +254,7 @@
 				7964561E1E0F9A5C002E27AC /* Question1ViewController.swift in Sources */,
 				796C00221E09013D004A5B62 /* HomeViewController.swift in Sources */,
 				796456221E0F9AAB002E27AC /* Question3ViewController.swift in Sources */,
+				79D2D4821E13AD1A00080EC8 /* AppDataModel.xcdatamodeld in Sources */,
 				796C00201E09013D004A5B62 /* AppDelegate.swift in Sources */,
 				790273CA1E132E0000FA283D /* CustomButtons.swift in Sources */,
 				796456201E0F9A9B002E27AC /* Question2ViewController.swift in Sources */,
@@ -440,6 +444,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		79D2D4801E13AD1A00080EC8 /* AppDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				79D2D4811E13AD1A00080EC8 /* AppDataModel.xcdatamodel */,
+			);
+			currentVersion = 79D2D4811E13AD1A00080EC8 /* AppDataModel.xcdatamodel */;
+			path = AppDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 796C00141E09013D004A5B62 /* Project object */;
 }
