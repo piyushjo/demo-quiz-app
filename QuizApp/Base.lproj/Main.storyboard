@@ -83,6 +83,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Technology"/>
                                 <connections>
+                                    <action selector="categoryButtonClicked:" destination="nNA-1p-40P" eventType="touchDown" id="tfq-CO-pF1"/>
                                     <segue destination="4l8-AV-pcC" kind="show" id="3to-p5-cBs"/>
                                 </connections>
                             </button>
@@ -92,6 +93,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Automobiles"/>
                                 <connections>
+                                    <action selector="categoryButtonClicked:" destination="nNA-1p-40P" eventType="touchDown" id="lNk-dd-FE5"/>
                                     <segue destination="Fnx-Fx-iXi" kind="show" id="Y6t-ii-Cv4"/>
                                 </connections>
                             </button>
@@ -137,6 +139,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bing" translatesAutoresizingMaskIntoConstraints="NO" id="pHN-HO-lZT">
                                 <rect key="frame" x="98" y="72" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Bing"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JS4-K1-rGF">
                                 <rect key="frame" x="140" y="329" width="77" height="133"/>
@@ -197,6 +200,7 @@
                         <outlet property="answer2Button" destination="dq9-Nj-lU3" id="EnG-Wc-ihX"/>
                         <outlet property="answer3Button" destination="yne-la-Nbj" id="o5k-Qr-iyV"/>
                         <outlet property="currentScoreLabel" destination="PQ8-Uq-waL" id="ydO-P4-Eu8"/>
+                        <outlet property="logoImageView" destination="pHN-HO-lZT" id="PH8-ov-zDj"/>
                         <outlet property="resultLabel" destination="T5V-t5-kjY" id="I9L-LK-UTS"/>
                     </connections>
                 </viewController>
@@ -247,6 +251,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="XBOX" translatesAutoresizingMaskIntoConstraints="NO" id="rC4-5M-FlI">
                                 <rect key="frame" x="98" y="72" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Xbox"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phC-2B-X96">
                                 <rect key="frame" x="16" y="564" width="343" height="54"/>
@@ -262,7 +267,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvn-sh-7Jr" customClass="AnswerButtons" customModule="demo_quiz_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="118" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <state key="normal" title="XBOX"/>
+                                        <state key="normal" title="Xbox"/>
                                         <connections>
                                             <action selector="correctAnswerProvided:" destination="PVH-6A-jPF" eventType="touchDown" id="eAo-bD-jWL"/>
                                         </connections>
@@ -310,6 +315,7 @@
                         <outlet property="answer2Button" destination="wOC-Ly-IhJ" id="rJa-H4-62F"/>
                         <outlet property="answer3Button" destination="HS1-YD-l6g" id="5Y4-Jl-MVh"/>
                         <outlet property="currentScoreLabel" destination="phC-2B-X96" id="m4a-Qj-K9c"/>
+                        <outlet property="logoImageView" destination="rC4-5M-FlI" id="jlx-i2-fPX"/>
                         <outlet property="resultLabel" destination="HwY-Kd-qir" id="RBI-Eb-gOo"/>
                     </connections>
                 </viewController>
@@ -332,6 +338,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Yammer" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-zE-qRx">
                                 <rect key="frame" x="98" y="72" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Yammer"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnk-ql-dfl">
                                 <rect key="frame" x="16" y="564" width="343" height="54"/>
@@ -392,6 +399,7 @@
                         <outlet property="answer2Button" destination="sjY-0x-R4t" id="jgM-LM-9f1"/>
                         <outlet property="answer3Button" destination="ESn-p5-zQg" id="bFE-F2-vAh"/>
                         <outlet property="currentScoreLabel" destination="gnk-ql-dfl" id="J28-zh-OxV"/>
+                        <outlet property="logoImageView" destination="DcH-zE-qRx" id="p6S-rT-Q0i"/>
                         <outlet property="resultLabel" destination="XtC-Ew-0W1" id="JU8-p2-WZE"/>
                     </connections>
                 </viewController>

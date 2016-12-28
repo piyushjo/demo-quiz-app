@@ -10,7 +10,6 @@ import FacebookLogin
 import FacebookCore
 import FBSDKLoginKit
 
-
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
@@ -22,7 +21,12 @@ class HomeViewController: UIViewController {
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email ]);
         loginButton.center = view.center;
         loginButton.delegate = self;
-        view.addSubview(loginButton)
+        view.addSubview(loginButton);
+        
+        // If there is already an FB access token, let the player play the game
+        if (AccessToken.current != nil) {
+            self.playButton.isEnabled = true;
+        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -20,9 +20,9 @@ class AnswerButtons: UIButton {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         self.layer.cornerRadius = 10.0;
-        self.layer.borderColor = UIColor.brown.cgColor;
-        self.layer.borderWidth = 1.5;
-        self.backgroundColor = UIColor.lightGray;
-        self.tintColor = UIColor.white;
+        //self.layer.borderColor = UIColor.brown.cgColor;
+        //self.layer.borderWidth = 1.5;
+        //self.backgroundColor = UIColor.lightGray;
+        //self.tintColor = UIColor.white;
     }
 }

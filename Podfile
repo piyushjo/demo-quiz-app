@@ -9,4 +9,5 @@ target 'demo-quiz-app' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'MobileCenter'
 end

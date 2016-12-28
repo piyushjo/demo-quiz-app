@@ -9,15 +9,22 @@ import WebKit
 import FacebookCore
 import FBSDKCoreKit
 
+import MobileCenter
+import MobileCenterAnalytics
+import MobileCenterCrashes
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        // For Facebook auth
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions);
+        
+        // Initializing Mobile Center SDK
+        MSMobileCenter.start("6a87eab5-4a9c-423e-a661-6a34eb103ed0", withServices: [MSAnalytics.self, MSCrashes.self])
         
         return true;
     }

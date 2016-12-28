@@ -87,13 +87,13 @@
 				796C00211E09013D004A5B62 /* HomeViewController.swift */,
 				796456191E0F9480002E27AC /* CategoriesViewController.swift */,
 				796C00231E09013D004A5B62 /* Main.storyboard */,
+				790273C91E132E0000FA283D /* CustomButtons.swift */,
 				7964561D1E0F9A5C002E27AC /* Question1ViewController.swift */,
 				7964561F1E0F9A9B002E27AC /* Question2ViewController.swift */,
 				796456211E0F9AAB002E27AC /* Question3ViewController.swift */,
 				796C00261E09013D004A5B62 /* Assets.xcassets */,
 				796C00281E09013D004A5B62 /* LaunchScreen.storyboard */,
 				796C002B1E09013D004A5B62 /* Info.plist */,
-				790273C91E132E0000FA283D /* CustomButtons.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";

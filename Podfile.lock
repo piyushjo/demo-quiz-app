@@ -24,11 +24,20 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.18.0):
     - FBSDKCoreKit
+  - MobileCenter (0.3.5):
+    - MobileCenter/MobileCenterAnalytics (= 0.3.5)
+    - MobileCenter/MobileCenterCrashes (= 0.3.5)
+  - MobileCenter/MobileCenter (0.3.5)
+  - MobileCenter/MobileCenterAnalytics (0.3.5):
+    - MobileCenter/MobileCenter
+  - MobileCenter/MobileCenterCrashes (0.3.5):
+    - MobileCenter/MobileCenter
 
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - MobileCenter
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -38,7 +47,8 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
+  MobileCenter: c86eb428d0c3ca7587b1fca5dc42a351c16c42f1
 
-PODFILE CHECKSUM: 97856fe025391117170aea9e818bb8a090f30a9c
+PODFILE CHECKSUM: 0fc0a751028a8d71206d1e4b73badf1581da534c
 
 COCOAPODS: 1.1.1
