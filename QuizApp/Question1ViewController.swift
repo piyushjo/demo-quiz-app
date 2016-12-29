@@ -1,10 +1,5 @@
-//
-//  Created by Piyush Joshi on 12/24/16.
-//  Copyright © 2016 Piyush Joshi. All rights reserved.
-//
 
 import UIKit
-import os.log
 
 import MobileCenterAnalytics
 
@@ -21,7 +16,6 @@ class Question1ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad();
-
         
         //Reset score before every new game assuming it is starting from Question 1
         MyGlobalVariables.playerScore = 0;

@@ -1,7 +1,3 @@
-//
-//  Created by Piyush Joshi on 12/24/16.
-//  Copyright © 2016 Piyush Joshi. All rights reserved.
-//
 
 import UIKit
 
@@ -41,12 +37,6 @@ class CategoriesViewController: UIViewController {
         let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
         
         // Query the LastPlayedScore table
-        
-        // Create a predicate that finds items
-        // let userId = MyGlobalVariables.azureMobileClient.currentUser?.userId;
-        // let predicate =  NSPredicate(format: "userId == %@", userId!);
-        // table.read(with: predicate) { (result, error) in
-        
         table.read { (result, error) in
             if let err = error {
                 print("Azure Mobile Apps: Error in connecting to the table: ", err)
@@ -70,12 +60,6 @@ class CategoriesViewController: UIViewController {
         let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
 
         // Query the LastPlayedScore table
-        
-        // Create a predicate that finds items
-        // let userId = MyGlobalVariables.azureMobileClient.currentUser?.userId;
-        // let predicate =  NSPredicate(format: "userId == %@", userId!);
-        // table.read(with: predicate) { (result, error) in
-        
         table.read { (result, error) in
             if let err = error {
                 print("Azure Mobile Apps: Error in connecting to the table: ", err)
@@ -83,7 +67,7 @@ class CategoriesViewController: UIViewController {
                 // If table access was succesful and an item was found
 
                 // Update
-                print("Azure Mobile Apps: Player record exists. Updating it now.");
+                print("Azure Mobile Apps: Player record found.");
                 
                 let playerRecord = result?.items?[0];
                 let playerRecordId = playerRecord?["id"];

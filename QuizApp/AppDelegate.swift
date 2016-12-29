@@ -1,7 +1,3 @@
-//
-//  Created by Piyush Joshi on 12/19/16.
-//  Copyright © 2016 Piyush Joshi. All rights reserved.
-//
 
 import UIKit
 
