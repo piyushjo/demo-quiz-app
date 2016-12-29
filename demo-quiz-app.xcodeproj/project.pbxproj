@@ -158,7 +158,7 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = L4RARDNZ2Y;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -394,8 +394,10 @@
 				);
 				INFOPLIST_FILE = QuizApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.QuizApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.myquizapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e21e08ba-a644-45bb-b051-dfbec108d11b";
+				PROVISIONING_PROFILE_SPECIFIER = "Piyush's quizapp";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "QuizApp/QuizApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -415,8 +417,10 @@
 				);
 				INFOPLIST_FILE = QuizApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.QuizApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.myquizapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e21e08ba-a644-45bb-b051-dfbec108d11b";
+				PROVISIONING_PROFILE_SPECIFIER = "Piyush's quizapp";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "QuizApp/QuizApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

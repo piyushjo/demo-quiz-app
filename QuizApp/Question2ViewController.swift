@@ -34,7 +34,6 @@ class Question2ViewController: UIViewController {
         
         // Send an event to track which which logo is the most difficult
         MSAnalytics.trackEvent("MarkedIncorrectAnswer", withProperties: ["Logo" : (self.logoImageView.accessibilityLabel)!]);
-
     }
     
     @IBAction func correctAnswerProvided(_ sender: UIButton) {
