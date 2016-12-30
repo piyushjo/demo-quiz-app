@@ -1,6 +1,7 @@
 
 import UIKit
 import WebKit
+import Foundation
 
 import FacebookLogin
 import FacebookCore
@@ -16,7 +17,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad();
         
         // FB Login
-        let loginButton = LoginButton(readPermissions: [ .publicProfile, .email ]);
+        let loginButton = LoginButton(readPermissions: [ .publicProfile ]);
+        FBSDKProfile.enableUpdates(onAccessTokenChange: true)
         loginButton.center = view.center;
         loginButton.delegate = self;
         view.addSubview(loginButton);
@@ -24,6 +26,17 @@ class HomeViewController: UIViewController {
         // If there is already an FB access token, skip FB sign in
         if (AccessToken.current != nil) {
             loginToAzureMobileApps();
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.FBSDKProfileDidChange,
+            object: nil, queue: nil) { (Notification) in
+                
+                if let profile = FBSDKProfile.current(),
+                    let playerName = profile.firstName {
+                        let defaults = UserDefaults.standard;
+                        defaults.set(playerName, forKey: "playerName");
+                }
         }
 
         // Initialization for Azure Mobile Apps Data sync
@@ -51,6 +64,18 @@ class HomeViewController: UIViewController {
             }
         };
     }
+    
+    func logoutFromAzureMobileApps() {
+        
+        // Logout from Azure Mobile Apps
+        MyGlobalVariables.azureMobileClient.logout { (error) in
+            if ((error) != nil) {
+                print("Failed Azure Mobile logout with error: %@" + error.debugDescription);
+            } else {
+                print("Completed Azure Mobile logout");
+            }
+        }
+    }
         
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,7 +94,18 @@ extension HomeViewController: LoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        print("Completed FB logout via LoginButton")
+        print("Completed FB logout via LoginButton");
+        
+        // Disable the Play button
+        self.playButton.isEnabled = false;
+        
+        // Cleanup NSUSerDefaults
+        if let bundle = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundle)
+        }
+        
+        // Logout from Azure Mobile Apps
+        logoutFromAzureMobileApps();
     }
 }
 

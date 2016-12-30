@@ -1,17 +1,20 @@
 
 import UIKit
 
+import FBSDKCoreKit
 import MobileCenterAnalytics
 
 class CategoriesViewController: UIViewController {
 
+    @IBOutlet weak var welcomeMessageLabel: UILabel!
+    
     @IBOutlet weak var lastScoreLabelField: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad();
-
+        
         // Loads the player's current score
-        getAndDisplayPlayerScore();
+        getAndDisplayPlayerLastScore();
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,14 +29,14 @@ class CategoriesViewController: UIViewController {
     
     @IBAction func unwindtoCategories(sender: UIStoryboardSegue) {
         if sender.source is Question3ViewController {
-            self.lastScoreLabelField.text = "Your score: " + String(MyGlobalVariables.playerScore);
+            self.lastScoreLabelField.text = "Your score in this game was: " + String(MyGlobalVariables.playerScore);
             
             // Update this score in the backend also
             updatePlayerScore();
         }
     }
     
-    func getAndDisplayPlayerScore() {
+    func getAndDisplayPlayerLastScore() {
         let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
         
         // Query the LastPlayedScore table
@@ -45,19 +48,31 @@ class CategoriesViewController: UIViewController {
                 let playerRecord = result?.items?[0];
                 let playerLastScore = (String(format: "%@", playerRecord?["score"] as! CVarArg) as String);
                 
-                // Update
+                // Display the last played score using the FB name if available
+                let defaults = UserDefaults.standard;
+                if let playerName = defaults.string(forKey: "playerName") {
+                    self.welcomeMessageLabel.text = String(format: "Welcome back, %@!", playerName);
+                }
+                else {
+                    self.welcomeMessageLabel.text = String(format: "Welcome back!");
+                }
                 self.lastScoreLabelField.text = String(format: "Your last score was: %@", playerLastScore);
-                
             } else {
                 // No score found. Playing for the first time
-                
-                self.lastScoreLabelField.text = "All the best!";
+                let defaults = UserDefaults.standard;
+                if let playerName = defaults.string(forKey: "playerName") {
+                    self.welcomeMessageLabel.text = String(format: "Welcome, %@!", playerName);
+                }
+                else {
+                    self.welcomeMessageLabel.text = String(format: "Welcome!");
+                }
             }
         }
     }
     
     func updatePlayerScore() {
         let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
+        let userId = MyGlobalVariables.azureMobileClient.currentUser?.userId;
 
         // Query the LastPlayedScore table
         table.read { (result, error) in
@@ -74,21 +89,21 @@ class CategoriesViewController: UIViewController {
                 
                 table.update(["id": playerRecordId!, "score": MyGlobalVariables.playerScore]) { (result, error) in
                     if let err = error {
-                        print("Azure Mobile Apps: Error in updating player record: ", err);
+                        print("Azure Mobile Apps: Error in updating player record:", err);
                     } else if let item = result {
-                        print("Azure Mobile Apps: Score updated to : ", item["score"]!);
+                        print("Azure Mobile Apps: Updated score to", item["score"]!, "for player", userId ?? "" );
                     }
                 }
             } else {
                 // Insert
-                print("Azure Mobile Apps: Player record doesn't exist. Inserting new row.");
+                print("Azure Mobile Apps: Player record not found.");
                 
                 let newItem = ["score": MyGlobalVariables.playerScore]
                 table.insert(newItem) { (result, error) in
                     if let err = error {
-                        print("Azure Mobile Apps: Error in inserting player record: ", err);
+                        print("Azure Mobile Apps: Error in inserting player record:", err);
                     } else if let item = result {
-                        print("Azure Mobile Apps: Score inserted : ", item["score"]!);
+                        print("Azure Mobile Apps: Score inserted", item["score"]!, "for player", userId ?? "" );
                     }
                 }
             }
