@@ -7,40 +7,55 @@ import MobileCenterAnalytics
 class CategoriesViewController: UIViewController {
 
     @IBOutlet weak var welcomeMessageLabel: UILabel!
-    
     @IBOutlet weak var lastScoreLabelField: UILabel!
+    
+    var store : MSCoreDataStore?
+    var offlineTable : MSSyncTable?
+    let connectedTable = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
     
     override func viewDidLoad() {
         super.viewDidLoad();
+
+        // Initialization for Azure Mobile Apps Data sync
+        initializeLocalStorageDb();
         
         // Loads the player's current score
         getAndDisplayPlayerLastScore();
     }
     
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        super.didReceiveMemoryWarning();
     }
-    
-    // MARK - Actions events
-    @IBAction func categoryButtonClicked(_ sender: UIButton) {
-        // Send an event to track which is the most commonly played category of logos
-        MSAnalytics.trackEvent("SelectedCategory", withProperties: ["Category" : sender.currentTitle!]);
-    }
-    
-    @IBAction func unwindtoCategories(sender: UIStoryboardSegue) {
-        if sender.source is Question3ViewController {
-            self.lastScoreLabelField.text = "Your score in the last game was: " + String(MyGlobalVariables.playerScore);
+
+    func initializeLocalStorageDb() {
+        // Reference: https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-ios-get-started-offline-data
+        let client = MyGlobalVariables.azureMobileClient;
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!;
+        self.store = MSCoreDataStore(managedObjectContext: managedObjectContext);
+        client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil);
+        
+        self.offlineTable = client.syncTable(withName: "LastPlayedScore");
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true;
+        
+        // Pulling the table data into local storage for offline work
+        //  If there are pending changes then it also pushes them to the backend
+        self.offlineTable!.pull(with: self.offlineTable?.query(), queryId: "AllRecords") {
+            (error) -> Void in
             
-            // Update this score in the backend also
-            updatePlayerScore();
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false;
+            
+            if (error != nil) {
+                print("Azure Mobile Apps: Error in setting up offline sync", error.debugDescription);
+            }
         }
     }
-    
+
     func getAndDisplayPlayerLastScore() {
-        let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
-        
+
+        let table = self.offlineTable;
+        table!.read { (result, error) in
         // Query the LastPlayedScore table
-        table.read { (result, error) in
             if let err = error {
                 print("Azure Mobile Apps: Error in connecting to the table: ", err)
             } else if (result?.items) != nil && (result?.items?.count)! > 0 {
@@ -71,11 +86,13 @@ class CategoriesViewController: UIViewController {
     }
     
     func updatePlayerScore() {
-        let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
         let userId = MyGlobalVariables.azureMobileClient.currentUser?.userId;
-
-        // Query the LastPlayedScore table
-        table.read { (result, error) in
+        
+        // USE THIS TO SHOWCASE Offline SYNC CAPABILITY
+        let table = self.offlineTable;
+        table!.read { (result, error) in
+        
+            // Query the LastPlayedScore table
             if let err = error {
                 print("Azure Mobile Apps: Error in connecting to the table: ", err)
             } else if (result?.items) != nil && (result?.items?.count)! > 0 {
@@ -87,11 +104,12 @@ class CategoriesViewController: UIViewController {
                 let playerRecord = result?.items?[0];
                 let playerRecordId = playerRecord?["id"];
                 
-                table.update(["id": playerRecordId!, "score": MyGlobalVariables.playerScore]) { (result, error) in
+                //table.update(["id": playerRecordId!, "score": MyGlobalVariables.playerScore]) { (result, error) in
+                table!.update(["id": playerRecordId!, "score": MyGlobalVariables.playerScore]) { (error) in
                     if let err = error {
                         print("Azure Mobile Apps: Error in updating player record:", err);
-                    } else if let item = result {
-                        print("Azure Mobile Apps: Updated score to", item["score"]!, "for player", userId ?? "" );
+                    } else {
+                        print("Azure Mobile Apps: Updated score to", MyGlobalVariables.playerScore, "for player", userId ?? "" );
                     }
                 }
             } else {
@@ -99,7 +117,7 @@ class CategoriesViewController: UIViewController {
                 print("Azure Mobile Apps: Player record not found.");
                 
                 let newItem = ["score": MyGlobalVariables.playerScore]
-                table.insert(newItem) { (result, error) in
+                table!.insert(newItem) { (result, error) in
                     if let err = error {
                         print("Azure Mobile Apps: Error in inserting player record:", err);
                     } else if let item = result {
@@ -107,6 +125,21 @@ class CategoriesViewController: UIViewController {
                     }
                 }
             }
+        }
+    }
+    
+    // MARK - Actions events
+    @IBAction func categoryButtonClicked(_ sender: UIButton) {
+        // Send an event to track which is the most commonly played category of logos
+        MSAnalytics.trackEvent("SelectedCategory", withProperties: ["Category" : sender.currentTitle!]);
+    }
+    
+    @IBAction func unwindtoCategories(sender: UIStoryboardSegue) {
+        if sender.source is Question3ViewController {
+            self.lastScoreLabelField.text = "Your score in the last game was: " + String(MyGlobalVariables.playerScore);
+            
+            // Update this score in the backend also
+            updatePlayerScore();
         }
     }
 }

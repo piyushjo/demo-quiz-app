@@ -10,9 +10,7 @@ import FBSDKLoginKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
-    
-    var store : MSCoreDataStore?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -28,6 +26,7 @@ class HomeViewController: UIViewController {
             loginToAzureMobileApps();
         }
         
+        // Register a notification to get profile changes to display user name after FB auth
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name.FBSDKProfileDidChange,
             object: nil, queue: nil) { (Notification) in
@@ -38,17 +37,8 @@ class HomeViewController: UIViewController {
                         defaults.set(playerName, forKey: "playerName");
                 }
         }
+    }
 
-        // Initialization for Azure Mobile Apps Data sync
-        initializeLocalStorageDb();
-    }
-    
-    func initializeLocalStorageDb() {
-        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!;
-        self.store = MSCoreDataStore(managedObjectContext: managedObjectContext);
-        MyGlobalVariables.azureMobileClient.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil);
-    }
-    
     func loginToAzureMobileApps() {
         let payload: [String: String] = ["access_token": (AccessToken.current?.authenticationToken)!];
         
@@ -81,6 +71,7 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 }
 
 extension HomeViewController: LoginButtonDelegate {
