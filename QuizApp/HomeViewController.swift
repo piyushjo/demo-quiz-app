@@ -86,11 +86,12 @@ class HomeViewController: UIViewController {
 extension HomeViewController: LoginButtonDelegate {
     
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        
-        print("Completed FB login via LoginButton");
-        
-        // After signing into Facebook, use the creds to sign in to Azure Mobile Apps for data segregation
-        loginToAzureMobileApps();
+        if (AccessToken.current != nil) {
+            print("Completed FB login via LoginButton");
+            
+            // After signing into Facebook, use the creds to sign in to Azure Mobile Apps for data segregation
+            loginToAzureMobileApps();
+        }
     }
     
     func loginButtonDidLogOut(_ loginButton: LoginButton) {

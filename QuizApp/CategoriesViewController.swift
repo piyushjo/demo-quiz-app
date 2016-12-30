@@ -29,7 +29,7 @@ class CategoriesViewController: UIViewController {
     
     @IBAction func unwindtoCategories(sender: UIStoryboardSegue) {
         if sender.source is Question3ViewController {
-            self.lastScoreLabelField.text = "Your score in this game was: " + String(MyGlobalVariables.playerScore);
+            self.lastScoreLabelField.text = "Your score in the last game was: " + String(MyGlobalVariables.playerScore);
             
             // Update this score in the backend also
             updatePlayerScore();
