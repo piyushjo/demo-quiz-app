@@ -2,6 +2,7 @@
 import UIKit
 
 import FBSDKCoreKit
+import MicrosoftAzureMobile
 import MobileCenterAnalytics
 
 class CategoriesViewController: UIViewController {
@@ -11,21 +12,17 @@ class CategoriesViewController: UIViewController {
     
     var store : MSCoreDataStore?
     var offlineTable : MSSyncTable?
-    let connectedTable = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
-    
+
     override func viewDidLoad() {
         super.viewDidLoad();
 
         // Initialization for Azure Mobile Apps Data sync
         initializeLocalStorageDb();
         
-        // Loads the player's current score
-        getAndDisplayPlayerLastScore();
+        // Displays a welcome message & player's current score
+        self.getAndDisplayPlayerLastScore();
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning();
-    }
+
 
     func initializeLocalStorageDb() {
         // Reference: https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-ios-get-started-offline-data
@@ -48,14 +45,16 @@ class CategoriesViewController: UIViewController {
             if (error != nil) {
                 print("Azure Mobile Apps: Error in setting up offline sync", error.debugDescription);
             }
+            print("Data succesfully synced between client and Azure backend service");
         }
     }
-
+    
     func getAndDisplayPlayerLastScore() {
-
-        let table = self.offlineTable;
-        table!.read { (result, error) in
-        // Query the LastPlayedScore table
+        // Demonstrate how we can pull the data directly from the Azure service backend storage
+        let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
+        
+        table.read { (result, error) in
+            // Query the LastPlayedScore table
             if let err = error {
                 print("Azure Mobile Apps: Error in connecting to the table: ", err)
             } else if (result?.items) != nil && (result?.items?.count)! > 0 {
@@ -88,7 +87,7 @@ class CategoriesViewController: UIViewController {
     func updatePlayerScore() {
         let userId = MyGlobalVariables.azureMobileClient.currentUser?.userId;
         
-        // USE THIS TO SHOWCASE Offline SYNC CAPABILITY
+        // Updating the table in the local storage
         let table = self.offlineTable;
         table!.read { (result, error) in
         
@@ -126,6 +125,10 @@ class CategoriesViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning();
     }
     
     // MARK - Actions events

@@ -1,5 +1,6 @@
 
 import Foundation
+import MicrosoftAzureMobile
 
 struct MyGlobalVariables {
     static var playerScore = 0;

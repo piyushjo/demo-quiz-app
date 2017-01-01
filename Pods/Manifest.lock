@@ -24,6 +24,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.18.0):
     - FBSDKCoreKit
+  - MicrosoftAzureMobile (3.2.0)
   - MobileCenter (0.3.5):
     - MobileCenter/MobileCenterAnalytics (= 0.3.5)
     - MobileCenter/MobileCenterCrashes (= 0.3.5)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
+  - MicrosoftAzureMobile (~> 3.2)
   - MobileCenter
 
 SPEC CHECKSUMS:
@@ -47,8 +49,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
+  MicrosoftAzureMobile: 04c756274c27134e80ff66c2dacc90db9af2bec8
   MobileCenter: c86eb428d0c3ca7587b1fca5dc42a351c16c42f1
 
-PODFILE CHECKSUM: 0fc0a751028a8d71206d1e4b73badf1581da534c
+PODFILE CHECKSUM: 1c76b5a66e67d1c29bc55741018a8ff5b80de293
 
 COCOAPODS: 1.1.1

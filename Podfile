@@ -10,4 +10,5 @@ target 'demo-quiz-app' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
   pod 'MobileCenter'
+  pod 'MicrosoftAzureMobile', '~> 3.2'
 end

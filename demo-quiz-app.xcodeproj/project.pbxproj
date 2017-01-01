@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		790273C81E13059500FA283D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790273C71E13059500FA283D /* Global.swift */; };
 		790273CA1E132E0000FA283D /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790273C91E132E0000FA283D /* CustomButtons.swift */; };
-		7912E17F1E0C8A4000314964 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7912E17E1E0C8A4000314964 /* MicrosoftAzureMobile.framework */; };
 		7964561B1E0F9480002E27AC /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796456191E0F9480002E27AC /* CategoriesViewController.swift */; };
 		7964561E1E0F9A5C002E27AC /* Question1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964561D1E0F9A5C002E27AC /* Question1ViewController.swift */; };
 		796456201E0F9A9B002E27AC /* Question2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964561F1E0F9A9B002E27AC /* Question2ViewController.swift */; };
@@ -28,7 +27,6 @@
 		40274A6134AB069E02D21FFF /* Pods_demo_quiz_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo_quiz_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		790273C71E13059500FA283D /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		790273C91E132E0000FA283D /* CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
-		7912E17E1E0C8A4000314964 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		796456191E0F9480002E27AC /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		7964561D1E0F9A5C002E27AC /* Question1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question1ViewController.swift; sourceTree = "<group>"; };
 		7964561F1E0F9A9B002E27AC /* Question2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question2ViewController.swift; sourceTree = "<group>"; };
@@ -51,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7912E17F1E0C8A4000314964 /* MicrosoftAzureMobile.framework in Frameworks */,
 				81C54FCBA65D5FC38022065D /* Pods_demo_quiz_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,7 +99,6 @@
 		79F586791E0A154F00CCFFA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7912E17E1E0C8A4000314964 /* MicrosoftAzureMobile.framework */,
 				40274A6134AB069E02D21FFF /* Pods_demo_quiz_app.framework */,
 			);
 			name = Frameworks;
