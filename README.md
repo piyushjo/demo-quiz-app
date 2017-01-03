@@ -32,9 +32,9 @@ Selection of 'Automobiles' category shows a *Coming Soon* page.
 
 Mobile Center Analytics SDK is integrated to understand the MAU/WAU/DAU, top devices etc. The app is also instrumented with custom events to answer the two fundamental questions:
 
-1) How many customers are clicking on the 'Automobiles' category and hence interested in seeing it in the game. 
+1) How many customers are clicking on the 'Automobiles' category and hence interested in seeing it in the game? 
 
-2) Which logo do customers find most difficult by tracking the number of incorrect answers reported for each logo in a gaming session.    
+2) Which logo do customers find most difficult by tracking the number of incorrect answers reported for each logo in a gaming session?    
 
 ### Crashes 
 
@@ -49,6 +49,6 @@ Test service provides for running the app with a set of UI tests on a number of 
 ###Distribute
 Distribute service is wired up with Build to send a notification to testers every time a code checkin happens and a build is successfully generated. 
 
-Bukd, Test & Distribute services constitute the Mobile DevOps cycle of continuous integration and distribution.   
+Build, Test & Distribute services constitute the Mobile DevOps cycle of continuous integration and distribution.   
 
 ***Note - All trademarks and registered trademarks used in this logo quiz are the property of their respective owners.***
