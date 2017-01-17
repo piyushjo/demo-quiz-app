@@ -45,15 +45,13 @@ In Mobile Center, the following services consitituting the Mobile DevOps cycle o
 Build service connects to this Github repo and is configured to produce an installable package of the app with every code checkin. 
 
 ###Test
-Test service provides for running the app with a set of UI tests on a number of real physical devices without having to own any. It helps in a quick validation of the app on several devices. This integration is TBD.   
+Test service provides for running the app with a set of UI tests on a number of real physical devices without having to own any. It helps in a quick validation of the app on several devices. 
+
+This app uses Calabash framework to create tests and run them through the Test service. It uses a simple test to verify that the "Log in to Facebook" button is indeed present on the screen when the home page shows up for the app. It is a useful validation since this button is added programmatically. 
 
 ###Distribute
 Distribute service is wired up with Build to send a notification to testers every time a code checkin happens and a build is successfully generated. 
 
-<<<<<<< HEAD
-***Note - All trademarks and registered trademarks used in this logo quiz are the property of their respective owners.***
-=======
 Build, Test & Distribute services constitute the Mobile DevOps cycle of continuous integration and distribution.   
 
 ***Note - All trademarks and registered trademarks used in this logo quiz are the property of their respective owners.***
->>>>>>> origin/master
