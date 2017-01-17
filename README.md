@@ -50,4 +50,10 @@ Test service provides for running the app with a set of UI tests on a number of 
 ###Distribute
 Distribute service is wired up with Build to send a notification to testers every time a code checkin happens and a build is successfully generated. 
 
+<<<<<<< HEAD
 ***Note - All trademarks and registered trademarks used in this logo quiz are the property of their respective owners.***
+=======
+Build, Test & Distribute services constitute the Mobile DevOps cycle of continuous integration and distribution.   
+
+***Note - All trademarks and registered trademarks used in this logo quiz are the property of their respective owners.***
+>>>>>>> origin/master
