@@ -17,6 +17,11 @@ class Question3ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         displayPlayerScore();
+        
+        // If the user has already played this
+        if (UserDefaults.standard.bool(forKey: "Q3Played") == true) {
+            disableAllButtons();
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -26,7 +31,7 @@ class Question3ViewController: UIViewController {
     // MARK - Actions events
     @IBAction func incorrectAnswerProvided(_ sender: UIButton) {
         resultLabel.text = "INCORRECT";
-        disableAllButtons();
+        q3Played();
         
         // Send an event to track which which logo is the most difficult
         MSAnalytics.trackEvent("MarkedIncorrectAnswer", withProperties: ["Logo" : (self.logoImageView.accessibilityLabel)!]);
@@ -35,6 +40,12 @@ class Question3ViewController: UIViewController {
     @IBAction func correctAnswerProvided(_ sender: UIButton) {
         resultLabel.text = "CORRECT";
         updateAndShowScore();
+        q3Played();
+    }
+    
+    // MARK - Other functions
+    func q3Played() {
+        UserDefaults.standard.set(true, forKey: "Q3Played");
         disableAllButtons();
     }
     

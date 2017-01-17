@@ -4,7 +4,7 @@ import UIKit
 import MobileCenterAnalytics
 
 class Question1ViewController: UIViewController {
-
+    
     @IBOutlet weak var logoImageView: UIImageView!
     
     @IBOutlet weak var answer1Button: UIButton!
@@ -21,6 +21,11 @@ class Question1ViewController: UIViewController {
         MyGlobalVariables.playerScore = 0;
         
         displayPlayerScore();
+        
+        // If the user has already played this
+        if (UserDefaults.standard.bool(forKey: "Q1Played") == true) {
+            disableAllButtons();
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +35,7 @@ class Question1ViewController: UIViewController {
     // MARK - Actions events
     @IBAction func incorrectAnswerProvided(_ sender: UIButton) {
         resultLabel.text = "INCORRECT";
-        disableAllButtons();
+        q1Played();
         
         // Send an event to track which which logo is the most difficult
         MSAnalytics.trackEvent("MarkedIncorrectAnswer", withProperties: ["Logo" : (self.logoImageView.accessibilityLabel)!]);
@@ -39,6 +44,12 @@ class Question1ViewController: UIViewController {
     @IBAction func correctAnswerProvided(_ sender: UIButton) {
         resultLabel.text = "CORRECT";
         updateAndShowScore();
+        q1Played();
+    }
+    
+    // MARK - Other functions
+    func q1Played() {
+        UserDefaults.standard.set(true, forKey: "Q1Played");
         disableAllButtons();
     }
     

@@ -41,6 +41,7 @@
 		796C00311E09015F004A5B62 /* QuizApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuizApp.entitlements; sourceTree = "<group>"; };
 		797A7FBA1E0B17BA000C444D /* QuizApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "QuizApp-Bridging-Header.h"; path = "QuizApp/QuizApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		79D2D4811E13AD1A00080EC8 /* AppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDataModel.xcdatamodel; sourceTree = "<group>"; };
+		79D83F6C1E2C97400012DF7D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7D92AB4A783B9938013A7B65 /* Pods-demo-quiz-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo-quiz-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-demo-quiz-app/Pods-demo-quiz-app.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +100,7 @@
 		79F586791E0A154F00CCFFA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79D83F6C1E2C97400012DF7D /* CFNetwork.framework */,
 				40274A6134AB069E02D21FFF /* Pods_demo_quiz_app.framework */,
 			);
 			name = Frameworks;
@@ -390,6 +392,46 @@
 				);
 				INFOPLIST_FILE = QuizApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"FacebookCore\"",
+					"-framework",
+					"\"FacebookLogin\"",
+					"-framework",
+					"\"FacebookShare\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MicrosoftAzureMobile\"",
+					"-framework",
+					"\"MobileCenter\"",
+					"-framework",
+					"\"MobileCenterAnalytics\"",
+					"-framework",
+					"\"MobileCenterCrashes\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-force_load",
+					"\"$(SOURCE_ROOT)/calabash.framework/calabash\"",
+					"-framework",
+					"\"CFNetwork\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.myquizapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e21e08ba-a644-45bb-b051-dfbec108d11b";

@@ -14,6 +14,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        // Cleanup any local variables from last play
+        cleanupLocalStorage();
+        
         // FB Login
         let loginButton = LoginButton(readPermissions: [ .publicProfile ]);
         FBSDKProfile.enableUpdates(onAccessTokenChange: true)
@@ -66,12 +69,19 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    func cleanupLocalStorage() {
         
+        // Cleanup NSUSerDefaults
+        if let bundle = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundle)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
 
 extension HomeViewController: LoginButtonDelegate {
@@ -90,11 +100,9 @@ extension HomeViewController: LoginButtonDelegate {
         
         // Disable the Play button
         self.playButton.isEnabled = false;
-        
-        // Cleanup NSUSerDefaults
-        if let bundle = Bundle.main.bundleIdentifier {
-            UserDefaults.standard.removePersistentDomain(forName: bundle)
-        }
+
+        // Cleanup variables stored locally
+        cleanupLocalStorage();
         
         // Logout from Azure Mobile Apps
         logoutFromAzureMobileApps();

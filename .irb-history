@@ -1,0 +1,23 @@
+start_test_server_in_background
+query("* marked:'Name'")
+cls
+clear
+cucumber
+exit
+tree
+query("button")
+touch("button index:0")
+touch("button index:1")
+query("ids")
+query("labels")
+query("label")
+touch("button index:0")
+exit
+query("ids")
+query("id")
+query("label")
+exit
+query("button isEnabled:true")
+query("button isEnabled:false")
+exit
+exit

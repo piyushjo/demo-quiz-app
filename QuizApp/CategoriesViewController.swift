@@ -16,38 +16,13 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad();
 
-        // Initialization for Azure Mobile Apps Data sync
-        initializeLocalStorageDb();
-        
         // Displays a welcome message & player's current score
         self.getAndDisplayPlayerLastScore();
+        
+        // Initialization for Azure Mobile Apps Data sync
+        initializeLocalStorageDb();
     }
-
-
-    func initializeLocalStorageDb() {
-        // Reference: https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-ios-get-started-offline-data
-        let client = MyGlobalVariables.azureMobileClient;
-        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!;
-        self.store = MSCoreDataStore(managedObjectContext: managedObjectContext);
-        client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil);
-        
-        self.offlineTable = client.syncTable(withName: "LastPlayedScore");
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true;
-        
-        // Pulling the table data into local storage for offline work
-        //  If there are pending changes then it also pushes them to the backend
-        self.offlineTable!.pull(with: self.offlineTable?.query(), queryId: "AllRecords") {
-            (error) -> Void in
-            
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false;
-            
-            if (error != nil) {
-                print("Azure Mobile Apps: Error in setting up offline sync", error.debugDescription);
-            }
-            print("Data succesfully synced between client and Azure backend service");
-        }
-    }
+    
     
     func getAndDisplayPlayerLastScore() {
         // Demonstrate how we can pull the data directly from the Azure service backend storage
@@ -83,6 +58,33 @@ class CategoriesViewController: UIViewController {
             }
         }
     }
+
+    func initializeLocalStorageDb() {
+        // Reference: https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-ios-get-started-offline-data
+        let client = MyGlobalVariables.azureMobileClient;
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!;
+        self.store = MSCoreDataStore(managedObjectContext: managedObjectContext);
+        client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil);
+        
+        self.offlineTable = client.syncTable(withName: "LastPlayedScore");
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true;
+        
+        // Pulling the table data into local storage for offline work
+        //  If there are pending changes then it also pushes them to the backend
+        self.offlineTable!.pull(with: self.offlineTable?.query(), queryId: "AllRecords") {
+            (error) -> Void in
+            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false;
+            
+            if (error != nil) {
+                print("Azure Mobile Apps: Error in setting up offline sync", error.debugDescription);
+            }
+            else {
+                print("Data succesfully synced between client and Azure backend service");
+            }
+        }
+    }
     
     func updatePlayerScore() {
         let userId = MyGlobalVariables.azureMobileClient.currentUser?.userId;
@@ -103,7 +105,6 @@ class CategoriesViewController: UIViewController {
                 let playerRecord = result?.items?[0];
                 let playerRecordId = playerRecord?["id"];
                 
-                //table.update(["id": playerRecordId!, "score": MyGlobalVariables.playerScore]) { (result, error) in
                 table!.update(["id": playerRecordId!, "score": MyGlobalVariables.playerScore]) { (error) in
                     if let err = error {
                         print("Azure Mobile Apps: Error in updating player record:", err);
