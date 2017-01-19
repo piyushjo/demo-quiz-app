@@ -15,9 +15,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad();
         
         // Cleanup any local variables from last play
-        cleanupLocalStorage();
+        //cleanupLocalStorage();
         
-        // FB Login
+        // STEP 1
+        // Mobile Center: Identity -> Show a Facebook login button programmatically
         let loginButton = LoginButton(readPermissions: [ .publicProfile ]);
         FBSDKProfile.enableUpdates(onAccessTokenChange: true)
         loginButton.center = view.center;
@@ -43,7 +44,12 @@ class HomeViewController: UIViewController {
     }
 
     func loginToAzureMobileApps() {
-        let payload: [String: String] = ["access_token": (AccessToken.current?.authenticationToken)!];
+        
+        // STEP 3
+        // Mobile Center: Identity -> Pass the authentication token 
+        //  retrieved from Facebook to Azure Mobile backend
+        let payload: [String: String] = ["access_token":
+            (AccessToken.current?.authenticationToken)!];
         
         MyGlobalVariables.azureMobileClient.login(withProvider: "facebook", token: payload) { (user, error) in
             
@@ -86,11 +92,15 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: LoginButtonDelegate {
     
+    // STEP 2 
+    // Mobile Center: Identity -> When the player 
+    //  logs in successully then login to Azure Mobile Apps
     func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
         if (AccessToken.current != nil) {
             print("Completed FB login via LoginButton");
             
-            // After signing into Facebook, use the creds to sign in to Azure Mobile Apps for data segregation
+            // After signing into Facebook, use the creds to sign 
+            //  in to Azure Mobile Apps for data segregation
             loginToAzureMobileApps();
         }
     }

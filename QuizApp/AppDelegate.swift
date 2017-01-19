@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // For Facebook auth
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions);
         
+        // STEP 1
+        // Mobile Center: Analytics & Crashes ->
         // Initializing Mobile Center SDK
         MSMobileCenter.start("6a87eab5-4a9c-423e-a661-6a34eb103ed0", withServices: [MSAnalytics.self, MSCrashes.self])
         

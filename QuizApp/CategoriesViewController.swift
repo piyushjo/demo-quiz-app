@@ -23,9 +23,10 @@ class CategoriesViewController: UIViewController {
         initializeLocalStorageDb();
     }
     
-    
     func getAndDisplayPlayerLastScore() {
-        // Demonstrate how we can pull the data directly from the Azure service backend storage
+        // STEP 1
+        // Mobile Center: Tables ->
+        //  Demonstrate how we can pull the data directly from the Azure service backend storage
         let table = MyGlobalVariables.azureMobileClient.table(withName: "LastPlayedScore");
         
         table.read { (result, error) in
@@ -60,6 +61,9 @@ class CategoriesViewController: UIViewController {
     }
 
     func initializeLocalStorageDb() {
+        // STEP 2
+        // Mobile Center: Tables ->
+        //  Demonstrates initialization of local storage for offline access of data
         // Reference: https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-ios-get-started-offline-data
         let client = MyGlobalVariables.azureMobileClient;
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext!;
@@ -82,11 +86,17 @@ class CategoriesViewController: UIViewController {
             }
             else {
                 print("Data succesfully synced between client and Azure backend service");
+                // This will ensure that the last score is correctly displayed from the backend
+                self.getAndDisplayPlayerLastScore();
             }
         }
     }
     
+    // Called when score is submitted from the final question screen
     func updatePlayerScore() {
+        // STEP 3
+        // Mobile Center: Tables ->
+        // Demonstrate how we can update the local storage for offline access
         let userId = MyGlobalVariables.azureMobileClient.currentUser?.userId;
         
         // Updating the table in the local storage
@@ -134,6 +144,8 @@ class CategoriesViewController: UIViewController {
     
     // MARK - Actions events
     @IBAction func categoryButtonClicked(_ sender: UIButton) {
+        // STEP 2
+        // Mobile Center: Analytics ->
         // Send an event to track which is the most commonly played category of logos
         MSAnalytics.trackEvent("SelectedCategory", withProperties: ["Category" : sender.currentTitle!]);
     }

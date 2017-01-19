@@ -19,9 +19,9 @@ class Question3ViewController: UIViewController {
         displayPlayerScore();
         
         // If the user has already played this
-        if (UserDefaults.standard.bool(forKey: "Q3Played") == true) {
-            disableAllButtons();
-        }
+        //if (UserDefaults.standard.bool(forKey: "Q3Played") == true) {
+        //    disableAllButtons();
+        //}
     }
     
     override func didReceiveMemoryWarning() {

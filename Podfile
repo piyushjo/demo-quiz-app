@@ -6,9 +6,15 @@ target 'demo-quiz-app' do
   use_frameworks!
 
   # Pods for demo-quiz-app
+  
+  # Pods for Facebook Authentication
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
-  pod 'MobileCenter'
+  
+  # For Mobile Identity and Tables services
   pod 'MicrosoftAzureMobile', '~> 3.2'
+  
+  # For Analytics and Crashes services
+  pod 'MobileCenter'
 end
