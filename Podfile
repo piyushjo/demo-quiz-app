@@ -17,4 +17,8 @@ target 'demo-quiz-app' do
   
   # For Analytics and Crashes services
   pod 'MobileCenter'
+  
+  # Use the following if you want to specify which service you want to use
+  # pod 'MobileCenter/MobileCenterAnalytics'
+  # pod 'MobileCenter/MobileCenterCrashes'
 end

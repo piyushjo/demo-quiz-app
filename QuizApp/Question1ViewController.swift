@@ -37,7 +37,9 @@ class Question1ViewController: UIViewController {
         resultLabel.text = "INCORRECT";
         q1Played();
         
-        // Send an event to track which which logo is the most difficult
+        // STEP 3
+        // Mobile Center: Analytics ->
+        // Send an event to track which logo is the most difficult
         MSAnalytics.trackEvent("MarkedIncorrectAnswer", withProperties: ["Logo" : (self.logoImageView.accessibilityLabel)!]);
     }
     
