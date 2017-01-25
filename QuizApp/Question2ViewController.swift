@@ -38,9 +38,9 @@ class Question2ViewController: UIViewController {
         MSAnalytics.trackEvent("MarkedIncorrectAnswer", withProperties: ["Logo" : (self.logoImageView.accessibilityLabel)!]);
         
         // Send a test crash here
-        //if (MyGlobalVariables.playerScore == 0) {
-        //    print(MyGlobalVariables.playerScore/MyGlobalVariables.playerScore);
-        //}
+        if (MyGlobalVariables.playerScore == 0) {
+            print(MyGlobalVariables.playerScore/MyGlobalVariables.playerScore);
+        }
     }
     
     @IBAction func correctAnswerProvided(_ sender: UIButton) {
