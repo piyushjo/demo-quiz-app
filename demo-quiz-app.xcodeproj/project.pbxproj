@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A8CC8395199B676026A48E3 /* Pods-demo-quiz-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo-quiz-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demo-quiz-app/Pods-demo-quiz-app.debug.xcconfig"; sourceTree = "<group>"; };
+		0A98DEFDD2566D6721C0CB6B /* Pods-demo-quiz-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo-quiz-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-demo-quiz-app/Pods-demo-quiz-app.release.xcconfig"; sourceTree = "<group>"; };
 		40274A6134AB069E02D21FFF /* Pods_demo_quiz_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demo_quiz_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		790273C71E13059500FA283D /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		790273C91E132E0000FA283D /* CustomButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
@@ -56,7 +56,7 @@
 		79C115151EBE874B006B4002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79D2D4811E13AD1A00080EC8 /* AppDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppDataModel.xcdatamodel; sourceTree = "<group>"; };
 		79D83F6C1E2C97400012DF7D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		7D92AB4A783B9938013A7B65 /* Pods-demo-quiz-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo-quiz-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-demo-quiz-app/Pods-demo-quiz-app.release.xcconfig"; sourceTree = "<group>"; };
+		9DB64FF241BED35907CCA3E7 /* Pods-demo-quiz-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo-quiz-app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-demo-quiz-app/Pods-demo-quiz-app.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		059BF849207FB20A97E9BEFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DB64FF241BED35907CCA3E7 /* Pods-demo-quiz-app.debug.xcconfig */,
+				0A98DEFDD2566D6721C0CB6B /* Pods-demo-quiz-app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		796C00131E09013D004A5B62 = {
 			isa = PBXGroup;
 			children = (
@@ -86,7 +95,7 @@
 				79F586791E0A154F00CCFFA3 /* Frameworks */,
 				796C001E1E09013D004A5B62 /* QuizApp */,
 				796C001D1E09013D004A5B62 /* Products */,
-				9BF1616A68C03F215433BD26 /* Pods */,
+				059BF849207FB20A97E9BEFD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,15 +145,6 @@
 				40274A6134AB069E02D21FFF /* Pods_demo_quiz_app.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9BF1616A68C03F215433BD26 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3A8CC8395199B676026A48E3 /* Pods-demo-quiz-app.debug.xcconfig */,
-				7D92AB4A783B9938013A7B65 /* Pods-demo-quiz-app.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,7 +214,6 @@
 					};
 					79C115101EBE874B006B4002 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = L4RARDNZ2Y;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 796C001B1E09013D004A5B62;
 					};
@@ -461,9 +460,8 @@
 		};
 		796C002F1E09013D004A5B62 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A8CC8395199B676026A48E3 /* Pods-demo-quiz-app.debug.xcconfig */;
+			baseConfigurationReference = 9DB64FF241BED35907CCA3E7 /* Pods-demo-quiz-app.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = QuizApp/QuizApp.entitlements;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -516,7 +514,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.myquizapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e21e08ba-a644-45bb-b051-dfbec108d11b";
+				PROVISIONING_PROFILE = "9341aace-82ee-4ca1-8b7f-c2a974ad57d5";
 				PROVISIONING_PROFILE_SPECIFIER = "Piyush's quizapp";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "QuizApp/QuizApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -525,9 +523,8 @@
 		};
 		796C00301E09013D004A5B62 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D92AB4A783B9938013A7B65 /* Pods-demo-quiz-app.release.xcconfig */;
+			baseConfigurationReference = 0A98DEFDD2566D6721C0CB6B /* Pods-demo-quiz-app.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = QuizApp/QuizApp.entitlements;
 				DEVELOPMENT_TEAM = L4RARDNZ2Y;
@@ -550,14 +547,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = L4RARDNZ2Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "demo-quiz-appUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.demo-quiz-appUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e21e08ba-a644-45bb-b051-dfbec108d11b";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "demo-quiz-app";
 			};
@@ -567,13 +566,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				DEVELOPMENT_TEAM = L4RARDNZ2Y;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "demo-quiz-appUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.demo-quiz-appUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e21e08ba-a644-45bb-b051-dfbec108d11b";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "demo-quiz-app";
 			};
@@ -607,6 +608,7 @@
 				79C1151A1EBE874B006B4002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

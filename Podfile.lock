@@ -38,7 +38,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - FacebookShare
-  - MicrosoftAzureMobile (~> 3.2)
+  - MicrosoftAzureMobile
   - MobileCenter
 
 SPEC CHECKSUMS:
@@ -52,6 +52,6 @@ SPEC CHECKSUMS:
   MicrosoftAzureMobile: 04c756274c27134e80ff66c2dacc90db9af2bec8
   MobileCenter: c86eb428d0c3ca7587b1fca5dc42a351c16c42f1
 
-PODFILE CHECKSUM: 1c76b5a66e67d1c29bc55741018a8ff5b80de293
+PODFILE CHECKSUM: fd56bda6969649ab201716bcbe6b2d9dc393999b
 
 COCOAPODS: 1.1.1
