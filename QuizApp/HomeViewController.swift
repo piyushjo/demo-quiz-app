@@ -21,7 +21,9 @@ class HomeViewController: UIViewController {
         // Mobile Center: Identity -> Show a Facebook login button programmatically
         let loginButton = LoginButton(readPermissions: [ .publicProfile ]);
         FBSDKProfile.enableUpdates(onAccessTokenChange: true)
+        
         loginButton.center = view.center;
+        
         loginButton.delegate = self;
         view.addSubview(loginButton);
         
