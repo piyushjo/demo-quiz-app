@@ -2,6 +2,7 @@
 import UIKit
 
 import MobileCenterAnalytics
+import MobileCenterCrashes
 
 class Question1ViewController: UIViewController {
     
@@ -41,6 +42,8 @@ class Question1ViewController: UIViewController {
         // Mobile Center: Analytics ->
         // Send an event to track which logo is the most difficult
         MSAnalytics.trackEvent("MarkedIncorrectAnswer", withProperties: ["Logo" : (self.logoImageView.accessibilityLabel)!]);
+        
+        MSCrashes.generateTestCrash();
     }
     
     @IBAction func correctAnswerProvided(_ sender: UIButton) {
