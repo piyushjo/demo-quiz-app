@@ -1,14 +1,14 @@
-#Mobile Center sample app
+# Mobile Center sample app
 
 This is a sample app developed for iOS platform in Xcode 8.2 & Swift 3.0. 
 It demonstrates the integration of services provided through Visual Studio Mobile Center. See [this](https://www.visualstudio.com/vs/mobile-center/) for more details. 
 
-##Overview##
+## Overview ##
 This is a quiz gaming app which shows a logo image to a player and asks them to choose the correct owner from a set of three options. 
 
 The app has the following Mobile Center services integrated in it through Cocoapods:
  
-###Azure Mobile App services
+### Azure Mobile App services
 Azure Mobile App services of **Idenitity** and **Tables** are integrated in the app. 
 
 Player is asked to sign-in with their Facebook credentials. Facebook identity is configured using the [Facebook Login SDK in Swift](https://developers.facebook.com/docs/swift/login).   
@@ -41,15 +41,15 @@ Mobile Center Crashes SDK is integrated to track any crashes occuring in the app
 
 In Mobile Center, the following services consitituting the Mobile DevOps cycle of continuous integration and distribution are also integrated in the app.  
 
-###Build 
+### Build 
 Build service connects to this Github repo and is configured to produce an installable package of the app with every code checkin. 
 
-###Test
+### Test
 Test service provides for running the app with a set of UI tests on a number of real physical devices without having to own any. It helps in a quick validation of the app on several devices. 
 
 This app uses Calabash framework to create tests and run them through the Test service. It uses a simple test to verify that the "Log in to Facebook" button is indeed present on the screen when the home page shows up for the app. It is a useful validation since this button is added programmatically. 
 
-###Distribute
+### Distribute
 Distribute service is wired up with Build to send a notification to testers every time a code checkin happens and a build is successfully generated. 
 
 Build, Test & Distribute services constitute the Mobile DevOps cycle of continuous integration and distribution.   
